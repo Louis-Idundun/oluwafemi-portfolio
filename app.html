@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Luxury Graphic Designer</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;300italic;400italic;500italic&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --gold: #B8966E;
+  --gold-light: #D4B896;
+  --cream: #FAF8F4;
+  --dark: #1A1814;
+  --mid: #6B6560;
+  --border: rgba(184,150,110,0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 300;
+}
+
+section {
+  padding: 120px 8%;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(250,248,244,0.92);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 8%;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+}
+
+.logo span {
+  color: var(--gold);
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* HERO */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 100vh;
+}
+
+.eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 35px;
+  height: 1px;
+  background: var(--gold);
+  margin-right: 10px;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero h1 em {
+  color: var(--gold);
+  font-style: italic;
+}
+
+.hero p {
+  color: var(--mid);
+  margin: 20px 0;
+}
+
+.link {
+  text-decoration: none;
+  border-bottom: 0.5px solid var(--gold);
+  color: var(--dark);
+}
+
+.hero-right {
+  background: var(--dark);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* SVG animation */
+.ring {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 0.5;
+  transform-origin: center;
+  animation: spin 12s linear infinite;
+}
+
+.ring.reverse {
+  animation-direction: reverse;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* STATS */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+}
+
+.stat {
+  text-align: center;
+  padding: 30px;
+  border-right: 0.5px solid var(--border);
+}
+
+.stat:last-child { border-right: none; }
+
+.stat h2 {
+  color: var(--gold);
+}
+
+.stat span {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+/* WORKS */
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.work {
+  background: var(--cream);
+}
+
+.thumb {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  transition: 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+.work:hover .thumb {
+  transform: scale(1.05);
+}
+
+.filters button {
+  border: 0.5px solid var(--gold);
+  background: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.filters .active {
+  background: var(--gold);
+  color: white;
+}
+
+/* ABOUT */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.portrait {
+  background: var(--dark);
+  height: 300px;
+}
+
+.quote {
+  font-style: italic;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.tags span {
+  border: 0.5px solid var(--gold);
+  padding: 5px 10px;
+  margin: 5px;
+  display: inline-block;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+
+/* SERVICES */
+.services {
+  background: var(--dark);
+  color: var(--gold-light);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+
+.service {
+  padding: 40px;
+  border: 0.5px solid var(--border);
+  transition: 0.3s;
+}
+
+.service:hover {
+  background: rgba(184,150,110,0.05);
+}
+
+/* CONTACT */
+.contact {
+  text-align: center;
+}
+
+.contact a {
+  border-bottom: 0.5px solid var(--gold);
+  text-decoration: none;
+  color: var(--dark);
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 8%;
+  color: var(--mid);
+  font-size: 0.8rem;
+}
+
+.work-card {
+  background: var(--cream);
+  overflow: hidden;
+}
+
+.thumb {
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+/* hover zoom */
+.work-card:hover .thumb {
+  transform: scale(1.05);
+}
+
+/* overlay */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: rgba(26,24,20,0.6);
+  color: white;
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+/* show overlay on hover */
+.work-card:hover .overlay {
+  opacity: 1;
+}
+
+/* text styles */
+.category {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+
+.title {
+  font-size: 1.2rem;
+  margin: 5px 0;
+}
+
+.year {
+  font-size: 0.7rem;
+  color: #ccc;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">CHRISTIAN OLUWAFEMI
+ <span>JOHNSON</span></div>
+  <ul>
+    <li><a href="#works">Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="eyebrow">Luxury Graphic Design</div>
+    <h1>Crafting <em>timeless</em> visuals</h1>
+    <p>High-end branding and visual identity for ambitious brands.</p>
+    <a href="#works" class="link">View Works →</a>
+  </div>
+
+  <div class="hero-right">
+    <svg width="200" height="200">
+      <circle cx="100" cy="100" r="80" class="ring"></circle>
+      <circle cx="100" cy="100" r="60" class="ring reverse"></circle>
+      <circle cx="100" cy="100" r="40" class="ring"></circle>
+      <text x="50%" y="50%" text-anchor="middle" fill="#B8966E" dy=".3em" font-size="20" font-family="Cormorant Garamond">COJ</text>
+    </svg>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stat"><h2>20+</h2><span>Projects</span></div>
+  <div class="stat"><h2>2</h2><span>Years</span></div>
+  <div class="stat"><h2>10</h2><span>Clients</span></div>
+  <div class="stat"><h2>2</h2><span>Awards</span></div>
+</section>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="eyebrow">Portfolio</div>
+  <h2 class="serif">Selected <em style="color:var(--gold)">Works</em></h2>
+
+  <div class="filters">
+    <button onclick="filterWorks('all', this)" class="active">All</button>
+    <!-- <button onclick="filterWorks('branding', this)">Branding</button> -->
+    <!-- <button onclick="filterWorks('web', this)">Web</button> -->
+  </div>
+
+  <div class="works-grid" id="worksGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="portrait"></div>
+  <div>
+    <div class="quote">“Design is the silent ambassador of luxury.”</div>
+    <p>I am a passionate and creative graphic designer with a strong eye for detail and visual storytelling. I specialize in creating clean, engaging, and impactful designs that communicate clearly and attract attention.
+
+With experience in branding, social media design, and promotional materials, I focus on delivering designs that not only look good but also serve a purpose, helping businesses and individuals connect with their audience effectively.
+
+I am committed to continuous growth, creativity, and excellence, always striving to improve my skills and deliver high-quality visual solutions.</p>
+    <p>My approach blends timeless aesthetics with modern precision.</p>
+    <div class="tags">
+      <span>Branding</span><span>UI</span><span>Typography</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="services">
+  <div class="services-grid">
+    <div class="service"><h3>01 Branding</h3><p>Luxury identity systems.</p></div>
+    <div class="service"><h3>02 Logo</h3><p>Elegant digital descriptive design.</p></div>
+    <div class="service"><h3>03 Advertising</h3><p>Visual storytelling.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="eyebrow">Contact</div>
+  <h2 class="serif">Let’s create <em style="color:var(--gold)">something</em></h2>
+  <p>Available for select projects.</p>
+  <a href="mailto:phemmy75@gmail.com">📧 phemmy75@gmail.com→</a>
+  <p>📞 07035515655</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 Christian Oluwafemi Johnson</div>
+  <div>Lagos · Available Worldwide</div>
+</footer>
+
+<script>
+const works = [
+  {
+    cat:'branding',
+    title:'Aviation Campaign Design',
+    year:'2024',
+    image:'./pics/image-1.jpeg',
+    desc:'Promotional visual for an aviation brand...'
+  },
+  {
+    cat:'advertising',
+    title:'Solar Energy Ad',
+    year:'2025',
+    image:'./pics/image-2.jpeg',
+    desc:'Marketing design for a solar solutions company...'
+  },
+  {
+    cat:'branding',
+    title:'Streetwear Brand Identity',
+    year:'2023',
+    image:'./pics/image-3.jpeg',
+    desc:'Bold 3D typographic design...'
+  },
+  {
+    cat:'logo',
+    title:'Barno Logo Design',
+    year:'2024',
+    image:'./pics/image-4.jpeg',
+    desc:'Luxury-inspired logo...'
+  },
+  {
+    cat:'advertising',
+    title:'April Campaign Visual',
+    year:'2025',
+    image:'./pics/image-5.jpeg',
+    desc:'Seasonal promotional design...'
+  },
+  {
+    cat:'branding',
+    title:'Luxury Diamond Visual',
+    year:'2023',
+    image:'./pics/image-6.jpeg',
+    desc:'High-end visual composition...'
+  }
+];
+
+function renderWorks(filter='all'){
+  const grid = document.getElementById('worksGrid');
+  grid.innerHTML = works
+    .filter(w => filter === 'all' || w.cat === filter)
+    .map(w => `
+      <div class="work-card">
+        
+        <div class="thumb" style="background-image: url('${w.image}')">
+          <div class="overlay">
+            <span class="category">${w.cat}</span>
+            <h4 class="title serif">${w.title}</h4>
+            <span class="year">${w.year}</span>
+          </div>
+        </div>
+
+      </div>
+    `).join('');
+}
+
+// function renderWorks(filter='all'){
+//   const grid = document.getElementById('worksGrid');
+//   grid.innerHTML = works
+//     .filter(w => filter === 'all' || w.cat === filter)
+//   .map(w => `
+//   <div class="work">
+//     <div class="thumb" style="background-image: url('${w.image}'); background-size: cover; background-position: center;"></div>
+//     <div style="padding:10px">
+//       <small>${w.cat}</small>
+//       <h4 class="serif">${w.title}</h4>
+//       <span>${w.year}</span>
+//     </div>
+//   </div>
+// `).join('');
+// }
+
+// function filterWorks(cat, btn){
+//   document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+//   btn.classList.add('active');
+//   renderWorks(cat);
+// }
+
+renderWorks();
+</script>
+
+</body>
+</html>
