@@ -194,13 +194,14 @@ nav a:hover {
   background: var(--cream);
 }
 
+/*
 .thumb {
   height: 200px;
   background-size: cover;
   background-position: center;
   transition: 0.6s cubic-bezier(.4,0,.2,1);
 }
-
+*/
 .work:hover .thumb {
   transform: scale(1.05);
 }
@@ -290,14 +291,14 @@ footer {
   background: var(--cream);
   overflow: hidden;
 }
-
+/*
 .thumb {
   height: 260px;
   background-size: cover;
   background-position: center;
   position: relative;
   transition: 0.6s cubic-bezier(.4,0,.2,1);
-}
+} */
 
 /* hover zoom */
 .work-card:hover .thumb {
@@ -320,6 +321,23 @@ footer {
 /* show overlay on hover */
 .work-card:hover .overlay {
   opacity: 1;
+}
+
+.thumb {
+  height: 260px;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.6s cubic-bezier(.4,0,.2,1);
+}
+
+.work-card:hover img {
+  transform: scale(1.05);
 }
 
 /* text styles */
@@ -445,42 +463,42 @@ const works = [
     cat:'branding',
     title:'Aviation Campaign Design',
     year:'2024',
-    image:'./pics/image-1.jpeg',
+    image:'./pics/image-1.webp',
     desc:'Promotional visual for an aviation brand...'
   },
   {
     cat:'advertising',
     title:'Solar Energy Ad',
     year:'2025',
-    image:'./pics/image-2.jpeg',
+    image:'./pics/image-2.webp',
     desc:'Marketing design for a solar solutions company...'
   },
   {
     cat:'branding',
     title:'Streetwear Brand Identity',
     year:'2023',
-    image:'./pics/image-3.jpeg',
+    image:'./pics/image-3.webp',
     desc:'Bold 3D typographic design...'
   },
   {
     cat:'logo',
     title:'Barno Logo Design',
     year:'2024',
-    image:'./pics/image-4.jpeg',
+    image:'./pics/image-4.webp',
     desc:'Luxury-inspired logo...'
   },
   {
     cat:'advertising',
     title:'April Campaign Visual',
     year:'2025',
-    image:'./pics/image-5.jpeg',
+    image:'./pics/image-5.webp',
     desc:'Seasonal promotional design...'
   },
   {
     cat:'branding',
     title:'Luxury Diamond Visual',
     year:'2023',
-    image:'./pics/image-6.jpeg',
+    image:'./pics/image-6.webp',
     desc:'High-end visual composition...'
   }
 ];
@@ -489,19 +507,21 @@ function renderWorks(filter='all'){
   const grid = document.getElementById('worksGrid');
   grid.innerHTML = works
     .filter(w => filter === 'all' || w.cat === filter)
-    .map(w => `
-      <div class="work-card">
-        
-        <div class="thumb" style="background-image: url('${w.image}')">
-          <div class="overlay">
-            <span class="category">${w.cat}</span>
-            <h4 class="title serif">${w.title}</h4>
-            <span class="year">${w.year}</span>
-          </div>
-        </div>
-
+.map(w => `
+  <div class="work-card">
+    
+    <div class="thumb">
+      <img src="${w.image}" alt="${w.title}" loading="lazy" />
+      
+      <div class="overlay">
+        <span class="category">${w.cat}</span>
+        <h4 class="title serif">${w.title}</h4>
+        <span class="year">${w.year}</span>
       </div>
-    `).join('');
+    </div>
+
+  </div>
+`).join('');
 }
 
 // function renderWorks(filter='all'){
