@@ -222,12 +222,25 @@ nav a:hover {
 .about {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 40px;
+  gap: 20px;
+  align-items: center;
 }
 
 .portrait {
   background: var(--dark);
-  height: 300px;
+  height: 75%;            /* fixed height */
+  width: 45%;              /* full width of container */
+  background-image: url('image-8.webp');  /* make sure the path is correct */
+  background-size:auto;   /* scale image to cover div */
+  background-position: center;  /* center the image */
+  background-repeat: no-repeat;  /* prevent tiling */
+  border-radius: 10px;      /* optional: rounded corners */
+}
+
+.portrait img {
+  width: 200%;     /* make it fit horizontally */
+  height: 100%;    /* make it fit vertically */
+  object-fit: cover; /* maintain aspect ratio and crop if needed */
 }
 
 .quote {
@@ -483,7 +496,9 @@ footer {
 
 <!-- ABOUT -->
 <section id="about" class="about">
-  <div class="portrait"></div>
+<div class="portrait">
+  <img src="./pics/image-8.webp" alt="Portrait Image" />
+</div>
   <div>
     <div class="quote">“Design is the silent ambassador of luxury.”</div>
     <p>I am a passionate and creative graphic designer with a strong eye for detail and visual storytelling. I specialize in creating clean, engaging, and impactful designs that communicate clearly and attract attention.
