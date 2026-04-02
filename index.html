@@ -358,6 +358,71 @@ footer {
   color: #ccc;
 }
 
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+  section {
+    padding: 80px 5%;
+  }
+
+  /* NAV */
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  nav ul {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  /* HERO */
+  .hero {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .hero-right {
+    height: 300px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  /* STATS */
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat {
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  /* WORKS */
+  .works-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* ABOUT */
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  /* SERVICES */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* FOOTER */
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+}
+
 </style>
 </head>
 
